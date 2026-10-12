@@ -1,0 +1,11 @@
+﻿1. Phân tích
+Câu 1: Giải thích tại sao lệnh cat hiển thị quá nhiều dữ liệu và tại sao không nên mở file 500MB bằng Notepad.
+Trong PowerShell, cat là alias của lệnh Get-Content, có tác dụng đọc nội dung file. Khi chạy lệnh cat server_log_500MB.log, toàn bộ nội dung file được đưa ra màn hình nên Terminal có thể bị đơ và khó tìm dòng lỗi cần thiết.
+Không nên mở file 500MB bằng Notepad vì file có dung lượng lớn, có thể chiếm nhiều RAM và khiến máy chạy chậm hoặc bị treo. Vì vậy, nên dùng PowerShell để đọc những phần nội dung cần kiểm tra.
+2. Hoàn thiện
+Câu 2: Viết lệnh PowerShell để xem toàn bộ file theo từng trang.
+Get-Content server_log_500MB.log | more
+Giải thích: Lệnh Get-Content đọc nội dung file, dấu | chuyển dữ liệu sang lệnh more. Nhờ đó, nội dung được hiển thị theo từng trang màn hình, giúp dễ theo dõi hơn.
+Câu 3: Viết lệnh PowerShell để xem 10 dòng cuối cùng của file.
+Get-Content server_log_500MB.log -Tail 10
+Giải thích: Tham số -Tail 10 dùng để lấy 10 dòng cuối cùng của file log. Cách này giúp kiểm tra những thông tin mới nhất mà không cần hiển thị toàn bộ file.
